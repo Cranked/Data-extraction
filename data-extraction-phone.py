@@ -73,16 +73,15 @@ try:
     df = pd.DataFrame(columns=columns)
     df["url"] = url_list
     df["price"] = prices_list
-    for i in range(0,len(url_list)):
+    for i,temp_url in enumerate(url_list):
         print("------------------------------")
-        update_contents(url_list[i],i)
-        print("------------------------------")
+        update_contents(temp_url,i)
+        print("******************************")
 
 
     df["ShopName"] = shop_list
     df["ShopPoint"] = shop_points_list
     print(df.head())
-    print()
     df.to_csv("./data/phone_data.csv")
 except Exception as e:
-    print("Bir sıkıntı vağğğğğğ")
+    print(e)
